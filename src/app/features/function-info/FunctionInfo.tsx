@@ -10,7 +10,7 @@ const Container = styled.div`
   display: flex;
   height: 100%;
   max-height: 100%;
-  overflow: hidden;
+  // overflow: hidden;
 `;
 
 const FunctionInfo = ({ contract }) => {
@@ -30,7 +30,7 @@ const FunctionInfo = ({ contract }) => {
   }
 
   // keyboard press behaviour (should really be somewhere else)
-  const keyHandler = e => {
+  const keyHandler = (e) => {
     if (e.key === "ArrowUp") {
       e.preventDefault();
       if (selectedIdx !== null) {
@@ -49,15 +49,15 @@ const FunctionInfo = ({ contract }) => {
         shiftDown();
       }
     }
-  }
+  };
 
   // add event listener on initial render, and remove on cleanup
   useEffect(() => {
-    window.addEventListener('keydown', keyHandler)
+    window.addEventListener("keydown", keyHandler);
     return () => {
-      window.removeEventListener('keydown', keyHandler)
-    }
-  }, [])
+      window.removeEventListener("keydown", keyHandler);
+    };
+  }, []);
 
   // unselect functions if the contract changes
   useEffect(() => {
@@ -71,8 +71,8 @@ const FunctionInfo = ({ contract }) => {
         setSelectedIdx={setSelectedIdx}
         fns={fns}
       />
-      <FunctionDetails fn={selectedFn} />
       <FunctionCall fn={selectedFn} />
+      <FunctionDetails fn={selectedFn} />
     </Container>
   );
 };

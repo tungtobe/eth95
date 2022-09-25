@@ -10,6 +10,8 @@ import useFormData from "./useFormData";
 import useCallFunction from "./useCallFunction";
 
 const Container = styled(Fieldset)`
+  width: 300px;
+  min-width: 300px;
   flex-grow: 1;
   margin-left: 16px;
   margin-top: 20px;
